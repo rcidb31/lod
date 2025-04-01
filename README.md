@@ -1,12 +1,8 @@
-# React + Vite
+# LIBRO DE OBRAS DIGITAL 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tengo una experiencia laboral en construccion de edificios mas de +10, como inspector de obras en el area de control de calidad.
 
-Currently, two official plugins are available:
+Utilize durante mucho tiempo un libro en las obras llamado libro de obras, es un libro enfocado a la RECEPCION DE OBRAS, a que me refiero con esto a un acuerdo entre 2 o mas pares , un acuerdo firmado y acordado por lo general en terreno. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Cuales son las tecnologias utulizadas. 
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
