@@ -1,14 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';   // Importamos BrowserRouter, Routes y Route
 import Home from './components/Home.jsx';
-
+import CasaForm from './components/CasaForm.jsx';
 
 const App = () => {
-    return (
-        <>
-          <Home/>
-        </>
-    );
+  return (
+    <BrowserRouter>   
+      <Routes>
+        <Route path="/" element={<Home />} />                       {/* Ruta Principal  */}
+        <Route path="/formulario-casa" element={<CasaForm />} />   {/* path = ruta */}
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default App;
-
