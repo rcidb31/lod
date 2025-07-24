@@ -1,0 +1,90 @@
+body {
+  background-color:rgb(20, 50, 130);
+  font-family: Tahoma, Verdana, sans-serif;
+  margin: 0;
+  padding: 40px;
+}
+
+/* Ventana XP */
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #d4d0c8;
+  border: 2px solid black;
+  box-shadow: inset -1px -1px #ffffff, inset 1px 1px #808080;
+}
+
+/* Título superior */
+.form-header {
+  background-color: navy;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Cuerpo */
+.form-body {
+  padding: 20px;
+}
+
+.form-body h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-decoration-style: dotted;
+}
+
+
+/* Etiquetas y campos */
+form label {
+  color: aliceblue;
+  display: block;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  border: 1px solid #999;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Botones */
+.xp-button {
+  padding: 8px 20px;
+  background-color: #e0e0e0;
+  border: 2px outset #fff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.xp-button:hover {
+  background-color: #dcdcdc;
+}
+
+form .button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+
+#custom-select {
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+
+}
+
+
+#filled-basic {
+  background-color: white;
+  border-radius: 5px;
+
+}
