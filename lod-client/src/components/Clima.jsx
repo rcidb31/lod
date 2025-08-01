@@ -12,7 +12,7 @@ function Clima() {
 
   return (
     <div style={{ fontSize: '14px', marginBottom: '10px' }}>
-      {temp !== null ? <p>🌡️ Clima actual: {temp}°C en Santiago</p> : <p>Cargando clima...</p>}
+      {temp !== null ? <p>🌡️ Temperatura actual: {temp}°C en Chile Santiago</p> : <p>Cargando clima...</p>}
     </div>
   );
 }

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../assets/module.css'
 import MultipleSelect from './MultipleSelect';
 import BasicTextFields from './BasicTextFields';
+import DateOnlyPicker from './DateOnlyPicker';
 
 
 function CasaForm() {
@@ -39,7 +40,6 @@ function CasaForm() {
         <h2 style={{ textAlign: 'center',color:'white' }}>Datos del Proyecto</h2>
         <form onSubmit={handleSubmit} className="form">
           <label>
-            Nombre del proyecto:
             <BasicTextFields/>
           </label>
           <br />
@@ -49,13 +49,11 @@ function CasaForm() {
           </label>
           <br />
           <label>
-            Fecha de recepcion:
-            <input type="date" name="fecha" value={formData.fecha} onChange={handleChange} />
+            <DateOnlyPicker/>
           </label>
           <br />
           <label>
-            Trabajos a recepcionar:
-               <MultipleSelect/>
+            <MultipleSelect/>
           </label>
           <br />
           <label>
