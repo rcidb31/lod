@@ -1,13 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';              // 👈 quita RouterLink aquí
+import { Router } from '@angular/router';             
 import { ProjectDataService } from '../../services/project-data.service';
 
 @Component({
   selector: 'app-form-casa',
   standalone: true,
-  imports: [ReactiveFormsModule],                      // 👈 quita RouterLink de imports
-  templateUrl: './form-casa.component.html'
+  imports: [ReactiveFormsModule],                      
+  templateUrl: './form-casa.component.html',
+  styleUrls: ['./form-casa.component.css']
 })
 export class FormCasaComponent {
   private fb = inject(FormBuilder);

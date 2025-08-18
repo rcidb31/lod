@@ -1,25 +1,30 @@
-/* Tema claro por defecto */
+/* 🌞 Tema claro */
 body {
-  background: #f9f9f9;
-  color: #222;
   margin: 0;
   font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #facc15 0%, #2563eb 100%); /* Amarillo -> Azul */
+  color: #222;
+  min-height: 100vh;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
-/* Tema oscuro */
+/* 🌙 Tema oscuro */
 body.dark {
-  background: #121212;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); /* Azul marino -> gris oscuro */
   color: #eee;
 }
 
+/* Header */
 header {
-  background: #e5e7eb; /* gris claro */
+  background: rgba(229, 231, 235, 0.8); /* gris claro semitransparente */
+  backdrop-filter: blur(8px);
 }
 
 body.dark header {
-  background: #1f1f1f; /* gris oscuro */
+  background: rgba(31, 31, 31, 0.8); /* gris oscuro semitransparente */
 }
 
+/* Botones */
 button {
   cursor: pointer;
   padding: 0.5rem 1rem;
@@ -35,18 +40,23 @@ button:hover {
   background: #4338ca;
 }
 
-
+/* Footer */
 footer {
   padding: 1.5rem 2rem;
   text-align: center;
-  background: #f3f4f6;
+  background: rgba(243, 244, 246, 0.85);
   color: #374151;
   border-top: 1px solid #e5e7eb;
   font-size: 0.9rem;
-
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  backdrop-filter: blur(6px);
+}
+
+body.dark footer {
+  background: rgba(15, 23, 42, 0.85);
+  color: #eee;
 }
 
 footer .footer-links {
@@ -64,15 +74,4 @@ footer .footer-links a {
 
 footer .footer-links a:hover {
   color: #4f46e5;
-}
-
-/* 🌙 Modo oscuro */
-body.dark footer {
-  background: #111827;
-  color: #d1d5db;
-  border-top: 1px solid #1f2937;
-}
-
-body.dark footer .footer-links a:hover {
-  color: #818cf8;
 }

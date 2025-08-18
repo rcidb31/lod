@@ -1,1 +1,32 @@
-<p>form-casa works!</p>
+<form [formGroup]="form" (ngSubmit)="next()" class="form-container">
+  <h2>Formulario Casa</h2>
+
+  <!-- Nombre -->
+  <div class="form-field">
+    <label for="nombre">Nombre del Proyecto</label>
+    <input id="nombre" type="text" formControlName="nombre" placeholder="Ej: Casa familiar" />
+  </div>
+
+  <!-- Dirección -->
+  <div class="form-field">
+    <label for="direccion">Dirección</label>
+    <input id="direccion" type="text" formControlName="direccion" placeholder="Ej: Calle 123" />
+  </div>
+
+  <!-- Fecha -->
+  <div class="form-field">
+    <label for="fecha">Fecha</label>
+    <input id="fecha" type="date" formControlName="fecha" />
+  </div>
+
+  <!-- Comentarios -->
+  <div class="form-field">
+    <label for="comentarios">Comentarios</label>
+    <textarea id="comentarios" rows="3" formControlName="comentarios" placeholder="Observaciones..."></textarea>
+  </div>
+
+  <!-- Botón -->
+  <div class="form-actions">
+    <button type="submit" [disabled]="form.invalid">Siguiente</button>
+  </div>
+</form>

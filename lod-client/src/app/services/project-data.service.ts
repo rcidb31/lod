@@ -7,6 +7,8 @@ export interface ActaData {
   direccion?: string;
   fecha?: string;
   comentarios?: string;
+  piso?: string;     // solo aplica en edificio
+  unidad?: string;   // solo aplica en edificio
 }
 
 @Injectable({ providedIn: 'root' })

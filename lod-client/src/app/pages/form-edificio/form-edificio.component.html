@@ -1,1 +1,38 @@
-<p>form-edificio works!</p>
+<div class="form-container">
+  <h2>📑 Acta de Edificio</h2>
+
+  <form [formGroup]="form" (ngSubmit)="next()">
+    <label>
+      Nombre Proyecto
+      <input type="text" formControlName="nombre" />
+    </label>
+
+    <label>
+      Dirección
+      <input type="text" formControlName="direccion" />
+    </label>
+
+    <div class="row">
+      <label>
+        Piso
+        <input type="text" formControlName="piso" />
+      </label>
+      <label>
+        Unidad
+        <input type="text" formControlName="unidad" />
+      </label>
+    </div>
+
+    <label>
+      Fecha
+      <input type="date" formControlName="fecha" />
+    </label>
+
+    <label>
+      Comentarios
+      <textarea rows="3" formControlName="comentarios"></textarea>
+    </label>
+
+    <button type="submit">Continuar ➡️</button>
+  </form>
+</div>
