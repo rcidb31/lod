@@ -1,0 +1,22 @@
+
+
+
+<header style="padding: 1rem; display: flex; justify-content: space-between; align-items: center;">
+  <h1>Libro de Obras Digital</h1>
+  <button (click)="toggleTheme()">
+    {{ isDark ? 'Light ☀️' : 'Dark 🌙 ' }}
+  </button>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="footer">
+  <p>© 2025 Libro de Obras Digital — Todos los derechos reservados, Desarollo por Cidev</p>
+  <nav class="footer-links">
+    <a href="#">Términos</a>
+    <a href="#">Privacidad</a>
+    <a href="#">Contacto</a>
+  </nav>
+</footer>

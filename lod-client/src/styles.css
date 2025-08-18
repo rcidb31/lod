@@ -1,0 +1,78 @@
+/* Tema claro por defecto */
+body {
+  background: #f9f9f9;
+  color: #222;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Tema oscuro */
+body.dark {
+  background: #121212;
+  color: #eee;
+}
+
+header {
+  background: #e5e7eb; /* gris claro */
+}
+
+body.dark header {
+  background: #1f1f1f; /* gris oscuro */
+}
+
+button {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #4338ca;
+}
+
+
+footer {
+  padding: 1.5rem 2rem;
+  text-align: center;
+  background: #f3f4f6;
+  color: #374151;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.9rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+footer .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+footer .footer-links a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+footer .footer-links a:hover {
+  color: #4f46e5;
+}
+
+/* 🌙 Modo oscuro */
+body.dark footer {
+  background: #111827;
+  color: #d1d5db;
+  border-top: 1px solid #1f2937;
+}
+
+body.dark footer .footer-links a:hover {
+  color: #818cf8;
+}
