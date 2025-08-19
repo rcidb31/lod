@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProjectDataService } from '../../services/project-data.service';
@@ -10,36 +10,38 @@ import { ProjectDataService } from '../../services/project-data.service';
   templateUrl: './form-edificio.component.html',
   styleUrls: ['./form-edificio.component.css']
 })
-export class FormEdificioComponent {
+export class FormEdificioComponent implements OnInit {
   private fb = inject(FormBuilder);
   private data = inject(ProjectDataService);
   private router = inject(Router);
 
+  // 👇 campos iguales a los de ActaData
   form = this.fb.nonNullable.group({
-    nombre: '',
+    recibe: '',
+    entrega: '',
     direccion: '',
-    piso: '',            // 👈 adicional para edificios
-    unidad: '',          // 👈 ejemplo depto/oficina
+    comuna: '',
     fecha: '',
+    trabajo: '',
     comentarios: ''
   });
 
   ngOnInit() {
     const s = this.data.snapshot;
     this.form.patchValue({
-      nombre: s.nombre ?? '',
+      recibe: s.recibe ?? '',
+      entrega: s.entrega ?? '',
       direccion: s.direccion ?? '',
-      piso: s.piso ?? '',
-      unidad: s.unidad ?? '',
+      comuna: s.comuna ?? '',
       fecha: s.fecha ?? '',
+      trabajo: s.trabajo ?? '',
       comentarios: s.comentarios ?? ''
     });
   }
 
-next() {
-  const v = this.form.getRawValue();
-  this.data.setData(v);         // 👈 guarda en el servicio
-  this.router.navigate(['/firma']);
-}
-
+  next() {
+    const v = this.form.getRawValue();
+    this.data.setData(v);  // guarda en el servicio
+    this.router.navigate(['/firma']);
+  }
 }

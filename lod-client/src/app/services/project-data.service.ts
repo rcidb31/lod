@@ -3,12 +3,13 @@ import { BehaviorSubject } from 'rxjs';
 
 export interface ActaData {
   tipo: 'casa' | 'edificio' | 'obra-civil' | 'local-comercial' | null;
-  nombre?: string;
+  recibe?: string;
+  entrega?: string;
   direccion?: string;
+  comuna?: string;
   fecha?: string;
+  trabajo?: string;
   comentarios?: string;
-  piso?: string;     // solo aplica en edificio
-  unidad?: string;   // solo aplica en edificio
 }
 
 @Injectable({ providedIn: 'root' })

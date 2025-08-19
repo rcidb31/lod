@@ -1,16 +1,28 @@
-<form [formGroup]="form" (ngSubmit)="next()" class="form-container">
-  <h2>Formulario Casa</h2>
+ <form [formGroup]="form" (ngSubmit)="next()" class="form-container">
+  <h2>Recepción Casa</h2>
 
-  <!-- Nombre -->
+  <!-- Recibe -->
   <div class="form-field">
-    <label for="nombre">Nombre del Proyecto</label>
-    <input id="nombre" type="text" formControlName="nombre" placeholder="Ej: Casa familiar" />
+    <label for="recibe">Recibe</label>
+    <input id="recibe" type="text" formControlName="recibe" placeholder="Ej: Raul Cid (Propietaria)" />
+  </div>
+
+  <!-- Entrega -->
+  <div class="form-field">
+    <label for="entrega">Entrega</label>
+    <input id="entrega" type="text" formControlName="entrega" placeholder="Ej: Tomas Cid (Constructor o Maestro)" />
   </div>
 
   <!-- Dirección -->
   <div class="form-field">
     <label for="direccion">Dirección</label>
-    <input id="direccion" type="text" formControlName="direccion" placeholder="Ej: Calle 123" />
+    <input id="direccion" type="text" formControlName="direccion" placeholder="Ej: Av Providencia #1111" />
+  </div>
+
+  <!-- Comuna -->
+  <div class="form-field">
+    <label for="comuna">Comuna</label>
+    <input id="comuna" type="text" formControlName="comuna" placeholder="Ej: San Miguel" />
   </div>
 
   <!-- Fecha -->
@@ -19,14 +31,21 @@
     <input id="fecha" type="date" formControlName="fecha" />
   </div>
 
-  <!-- Comentarios -->
+  <!-- Trabajo realizado -->
   <div class="form-field">
-    <label for="comentarios">Comentarios</label>
-    <textarea id="comentarios" rows="3" formControlName="comentarios" placeholder="Observaciones..."></textarea>
+    <label for="trabajo">Trabajo realizado</label>
+    <input id="trabajo" type="text" formControlName="trabajo" placeholder="Ej: Remodelación Baño" />
   </div>
 
-  <!-- Botón -->
+  <!-- Comentarios -->
+  <div class="form-field">
+    <label for="comentarios">Fallas / Acuerdos</label>
+    <textarea id="comentarios" rows="3" formControlName="comentarios" placeholder="Aquí cualquier tipo de falla ..."></textarea>
+  </div>
+
+  <!-- Botones -->
   <div class="form-actions">
     <button type="submit" [disabled]="form.invalid">Siguiente</button>
+    <button type="button" (click)="goHome()">Volver al inicio</button>
   </div>
 </form>

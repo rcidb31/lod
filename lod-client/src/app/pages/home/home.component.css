@@ -46,3 +46,13 @@
 }
 
 
+.card span.material-icons {
+  font-size: 3rem;
+  color: #4f46e5; /* azul moderno */
+}
+
+
+.card span.material-symbols-outlined {
+  font-size: 3rem;
+  color: #4f46e5; /* azul moderno */
+}
