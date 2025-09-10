@@ -1,5 +1,7 @@
  <form [formGroup]="form" (ngSubmit)="next()" class="form-container">
-  <h2>Recepción Casa</h2>
+ 
+  <h2><span class="material-icons">home</span> Recepción Casa</h2>
+  
 
   <!-- Recibe -->
   <div class="form-field">
@@ -42,10 +44,19 @@
     <label for="comentarios">Fallas / Acuerdos</label>
     <textarea id="comentarios" rows="3" formControlName="comentarios" placeholder="Aquí cualquier tipo de falla ..."></textarea>
   </div>
+  
+  <div class="form-actions flex gap-3 mt-6">
+  <!-- Botón siguiente -->
+  <button type="submit" [disabled]="form.invalid"
+    class="flex items-center justify-center gap-2 px-5 py-2 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed">
+    <span class="material-symbols-outlined text-[22px] leading-none align-middle">arrow_forward</span>
+    <span class="align-middle">Siguiente</span>
+  </button>
 
-  <!-- Botones -->
-  <div class="form-actions">
-    <button type="submit" [disabled]="form.invalid">Siguiente</button>
-    <button type="button" (click)="goHome()">Volver al inicio</button>
-  </div>
-</form>
+  <!-- Botón volver -->
+  <button type="button" (click)="goHome()"
+    class="flex items-center justify-center gap-2 px-5 py-2 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700">
+    <span class="material-symbols-outlined text-[22px] leading-none align-middle">home</span>
+    <span class="align-middle">Volver al inicio</span>
+  </button>
+</div>

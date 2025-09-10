@@ -1,38 +1,55 @@
 <div class="form-container">
-  <h2>📑 Acta de Edificio</h2>
+  <h2><span class="material-icons">apartment</span>
+Acta de Edificio</h2>
 
-  <form [formGroup]="form" (ngSubmit)="next()">
-    <label>
-      Nombre Proyecto
-      <input type="text" formControlName="nombre" />
-    </label>
+  <!-- Recibe -->
+  <div class="form-field">
+    <label for="recibe">Recibe</label>
+    <input id="recibe" type="text" formControlName="recibe" placeholder="Ej: Raul Cid (Propietaria)" />
+  </div>
 
-    <label>
-      Dirección
-      <input type="text" formControlName="direccion" />
-    </label>
+  <!-- Entrega -->
+  <div class="form-field">
+    <label for="entrega">Entrega</label>
+    <input id="entrega" type="text" formControlName="entrega" placeholder="Ej: Tomas Cid (Constructor o Maestro)" />
+  </div>
 
-    <div class="row">
-      <label>
-        Piso
-        <input type="text" formControlName="piso" />
-      </label>
-      <label>
-        Unidad
-        <input type="text" formControlName="unidad" />
-      </label>
-    </div>
+  <!-- Dirección -->
+  <div class="form-field">
+    <label for="direccion">Dirección</label>
+    <input id="direccion" type="text" formControlName="direccion" placeholder="Ej: Av Providencia #1111" />
+  </div>
 
-    <label>
-      Fecha
-      <input type="date" formControlName="fecha" />
-    </label>
+  <!-- Comuna -->
+  <div class="form-field">
+    <label for="comuna">Comuna</label>
+    <input id="comuna" type="text" formControlName="comuna" placeholder="Ej: San Miguel" />
+  </div>
 
-    <label>
-      Comentarios
-      <textarea rows="3" formControlName="comentarios"></textarea>
-    </label>
+  <!-- Fecha -->
+  <div class="form-field">
+    <label for="fecha">Fecha</label>
+    <input id="fecha" type="date" formControlName="fecha" />
+  </div>
 
-    <button type="submit">Continuar ➡️</button>
-  </form>
-</div>
+  <!-- Trabajo realizado -->
+  <div class="form-field">
+    <label for="trabajo">Trabajo realizado</label>
+    <input id="trabajo" type="text" formControlName="trabajo" placeholder="Ej: Remodelación Baño" />
+  </div>
+
+  <!-- Comentarios -->
+  <div class="form-field">
+    <label for="comentarios">Fallas / Acuerdos</label>
+    <textarea id="comentarios" rows="3" formControlName="comentarios" placeholder="Aquí cualquier tipo de falla ..."></textarea>
+  </div>
+  
+  <div class="form-actions flex gap-3 mt-6">
+  <!-- Botón siguiente -->
+  <button type="submit" [disabled]="form.invalid"
+    class="flex items-center justify-center gap-2 px-5 py-2 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed">
+    <span class="material-symbols-outlined text-[22px] leading-none align-middle">arrow_forward</span>
+    <span class="align-middle">Siguiente</span>
+  </button>
+
+ 
