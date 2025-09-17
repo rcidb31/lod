@@ -1,62 +1,64 @@
- <form [formGroup]="form" (ngSubmit)="next()" class="form-container">
- 
-  <h2><span class="material-icons">home</span> Recepción Casa</h2>
-  
 
-  <!-- Recibe -->
-  <div class="form-field">
-    <label for="recibe">Recibe</label>
-    <input id="recibe" type="text" formControlName="recibe" placeholder="Ej: Raul Cid (Propietaria)" />
+
+<form [formGroup]="form" (ngSubmit)="onGeneratePdf()" class="form">
+  <h2>Recepción - Casa</h2>
+
+  <label>Nombre / Cliente
+    <input formControlName="nombre" />
+  </label>
+
+  <label>Dirección
+    <input formControlName="direccion" />
+  </label>
+
+  <div class="row">
+    <label>Fecha
+      <input type="date" formControlName="fecha" />
+    </label>
+    <label>Recibe
+      <input formControlName="recibe" />
+    </label>
+    <label>Entrega
+      <input formControlName="entrega" />
+    </label>
   </div>
 
-  <!-- Entrega -->
-  <div class="form-field">
-    <label for="entrega">Entrega</label>
-    <input id="entrega" type="text" formControlName="entrega" placeholder="Ej: Tomas Cid (Constructor o Maestro)" />
-  </div>
+  <label>Observaciones / Comentarios
+    <textarea rows="3" formControlName="comentarios"></textarea>
+  </label>
 
-  <!-- Dirección -->
-  <div class="form-field">
-    <label for="direccion">Dirección</label>
-    <input id="direccion" type="text" formControlName="direccion" placeholder="Ej: Av Providencia #1111" />
-  </div>
+  <button class="buttonpdf" type="submit">Generar PDF</button>
+</form>
 
-  <!-- Comuna -->
-  <div class="form-field">
-    <label for="comuna">Comuna</label>
-    <input id="comuna" type="text" formControlName="comuna" placeholder="Ej: San Miguel" />
-  </div>
 
-  <!-- Fecha -->
-  <div class="form-field">
-    <label for="fecha">Fecha</label>
-    <input id="fecha" type="date" formControlName="fecha" />
-  </div>
 
-  <!-- Trabajo realizado -->
-  <div class="form-field">
-    <label for="trabajo">Trabajo realizado</label>
-    <input id="trabajo" type="text" formControlName="trabajo" placeholder="Ej: Remodelación Baño" />
-  </div>
 
-  <!-- Comentarios -->
-  <div class="form-field">
-    <label for="comentarios">Fallas / Acuerdos</label>
-    <textarea id="comentarios" rows="3" formControlName="comentarios" placeholder="Aquí cualquier tipo de falla ..."></textarea>
-  </div>
-  
-  <div class="form-actions flex gap-3 mt-6">
-  <!-- Botón siguiente -->
-  <button type="submit" [disabled]="form.invalid"
-    class="flex items-center justify-center gap-2 px-5 py-2 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed">
-    <span class="material-symbols-outlined text-[22px] leading-none align-middle">arrow_forward</span>
-    <span class="align-middle">Siguiente</span>
-  </button>
+<!-- 🔽 Esto es lo que se captura para el PDF -->
+<div #actaPreview class="acta-a4">
+  <header class="acta-header">
+      <div class="folio-top" aria-hidden="true">02</div>
+    <h1>Acta de Entrega - Casa</h1>
 
-  <!-- Botón volver -->
-  <button type="button" (click)="goHome()"
-    class="flex items-center justify-center gap-2 px-5 py-2 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700">
-    <span class="material-symbols-outlined text-[22px] leading-none align-middle">home</span>
-    <span class="align-middle">Volver al inicio</span>
-  </button>
+    <div class="meta">Fecha: {{ form.value.fecha }}</div>
+  </header>
+
+  <section class="acta-body">
+    <p><strong>Nombre / Cliente:</strong> {{ form.value.nombre }}</p>
+    <p><strong>Dirección:</strong> {{ form.value.direccion }}</p>
+    <p><strong>Recibe:</strong> {{ form.value.recibe || '—' }}</p>
+    <p><strong>Entrega:</strong> {{ form.value.entrega || '—' }}</p>
+    <p><strong>Observaciones / Comentarios:</strong></p>
+    <div class="box">{{ form.value.comentarios || '—' }}</div>
+  </section>
+
+  <footer class="firmas">
+    <div class="firma">
+      <div class="line"></div>
+      <span>Firma Entrega</span>
+    </div>
+    <div class="firma">
+      <div class="line"></div>
+      <span>Firma Recibe</span>
+    </div>
+  </footer>
 </div>

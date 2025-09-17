@@ -1,55 +1,37 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ProjectDataService } from '../../services/project-data.service';
+import { Component, ElementRef, ViewChild, inject } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { PdfService } from '../../services/pdf.service';
 
 @Component({
-  selector: 'app-form-casa',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  selector: 'app-form-casa',
+  imports: [ReactiveFormsModule],          // ✅ necesario para forms reactivos
   templateUrl: './form-casa.component.html',
   styleUrls: ['./form-casa.component.css']
 })
-export class FormCasaComponent implements OnInit {
+export class FormCasaComponent {
   private fb = inject(FormBuilder);
-  private data = inject(ProjectDataService);
-  private router = inject(Router);
+  private pdf = inject(PdfService);        // ✅ PDF service
 
-  // ✅ declaramos el formulario
- form = this.fb.nonNullable.group({
-  recibe: '',
-  entrega: '',
-  direccion: '',
-  comuna: '',
-  fecha: '',
-  trabajo: '',
-  comentarios: ''
+  @ViewChild('actaPreview')                // ✅ elemento a capturar
+  actaPreview!: ElementRef<HTMLDivElement>;
+
+  form = this.fb.nonNullable.group({
+    nombre: ['', Validators.required],
+    direccion: ['', Validators.required],
+    fecha: [new Date().toISOString().slice(0, 10), Validators.required],
+    recibe: [''],
+    entrega: [''],
+    comentarios: ['']
   });
 
- ngOnInit() {
-  const s = this.data.snapshot;
-  this.form.patchValue({
-    recibe: (s as any).recibe ?? '',
-    entrega: (s as any).entrega ?? '',
-    direccion: s.direccion ?? '',
-    comuna: (s as any).comuna ?? '',
-    fecha: s.fecha ?? '',
-    trabajo: (s as any).trabajo ?? '',
-    comentarios: s.comentarios ?? ''
-  });
-}
-
-
-  next() {
-    if (this.form.valid) {
-      const v = this.form.getRawValue();
-      this.data.setData({ tipo: 'casa', ...v });
-      this.router.navigateByUrl('/preview'); // 👈 va a la vista previa
-    }
-  }
-
-  goHome() {
-    this.router.navigate(['/']); // 👈 vuelve al home
+  // ✅ genera el PDF capturando el preview
+  async onGeneratePdf() {
+    if (!this.actaPreview?.nativeElement) return;
+    await this.pdf.fromElement(
+      this.actaPreview.nativeElement,
+      `acta_${this.form.value.nombre || 'casa'}.pdf`
+    );
   }
 }
-
+// Componente para el formulario y vista previa del acta de entrega
